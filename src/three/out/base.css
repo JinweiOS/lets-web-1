@@ -1,0 +1,24 @@
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}
+
+div {
+  font-size: 12px;
+}
+
+span {
+  font-size: 14px;
+}
+
+span {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+div {
+  color: antiquewhite;
+}
+
+/*# sourceMappingURL=base.css.map */

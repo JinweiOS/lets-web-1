@@ -1,0 +1,32 @@
+$font-stack:    Helvetica, sans-serif; // 1变量
+$primary-color: #333;
+
+body {
+  div { // 2嵌套
+    font-size: 15px;
+  }
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+@mixin fontSize($size) { // 3mixins
+  font-size: $size;
+}
+
+div { // mixins 引入
+  @include fontSize(12px)
+}
+
+span {
+  @include fontSize(14px)
+}
+
+%message-shared { // 4extend继承
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
+
+span { // 继承的使用
+  @extend %message-shared;
+}
