@@ -22,3 +22,25 @@ div {
 }
 
 /*# sourceMappingURL=base.css.map */
+
+body {
+  font: 100% Helvetica, sans-serif;
+  color: #333;
+}
+body div {
+  font-size: 15px;
+}
+
+div {
+  font-size: 12px;
+}
+
+span {
+  font-size: 14px;
+}
+
+span {
+  border: 1px solid #ccc;
+  padding: 10px;
+  color: #333;
+}
