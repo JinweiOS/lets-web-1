@@ -10,10 +10,6 @@ function callback3() {
     
 }
 
-
-
-
-
 // Object
 const paramsWrapper = {
     data: '一段很大的文字',
