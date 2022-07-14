@@ -85,13 +85,73 @@ function arrIt(arr, callback) {
 /**
  * 4.数组遍历带返回值
  */
-const arr4 = [1, 2, 4, 5]
-function test4(value) {
-    const i = value + 1;
-    return i
+// const arr4 = [1, 2, 4, 5]
+// function test4(value) {
+//     const i = value + 1;
+//     return i
+// }
+// const arr4back = arr4.map(test4)
+// console.log(arr4, arr4back)
+
+/**
+ * 5.过滤
+ */
+const arr5 = ['pjw', 'xxx', '123', 'hahaha']
+function callback5(value) {
+    // if (value === 'pjw') {
+    //     return false
+    // }
+    // return true;
+
+    return value === 'pjw' ? false : true;
 }
-const arr4back = arr4.map(test4)
-console.log(arr4, arr4back)
+// 匿名函数
+const callback55 = function (value) {
+    return value === 'pjw' ? false : true;
+}
+// 箭头函数
+// const callback555 = (value) => {
+//     return value === 'pjw' ? false : true;
+// }
+// const result5 = arr5.filter((value) => {
+//     return value === 'pjw' ? false : true;
+// })
+// console.log(result5)
+
+/**
+ * 排序
+ */
+// const array6 = [2, 3, 4, 5, 1]
+// array6.sort((a, b) => b - a)
+// console.log(array6)
+
+/**
+ * 6.find
+ */
+// const objArr = [
+//     { name: 'pjw', age: '' },
+//     { name: 'xxx', age: '' }
+// ]
+// const testJian = () => 1;
+// console.log(testJian())
+// objArr.find(item => item.name === 'pjw').age = 80
+
+/**
+ * 7.切分数组
+ */
+const arr7 = [1, 2, 4, 5, 6, 7, 8, 9]
+arr7.slice(4, 6)
+    .map(item => item + 1)
+    .forEach(item => console.log(item))
+
+/**
+* 8. 扁平化
+ */
+const arr8 = [1, 2, 4, [3, 10], [[7, 8], 14]]
+const arr8flat = arr8.flat().flat()
+
+console.log(arr8flat)
+
 
 
 
