@@ -151,9 +151,3 @@ const arr8 = [1, 2, 4, [3, 10], [[7, 8], 14]]
 const arr8flat = arr8.flat().flat()
 
 console.log(arr8flat)
-
-
-
-
-
-
