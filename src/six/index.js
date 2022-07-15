@@ -15,7 +15,7 @@ const arr = [1, 2, 3]
 test(...arr)
 console.log(test.length)
 
-// 递归容易爆栈
+// 5.递归容易爆栈
 function fibonacci(n) {
     if (n == 1 || n == 2) {
         return 1
@@ -34,7 +34,7 @@ function qiuhe(param) {
 }
 
 console.log(qiuhe(10))
-// this指向问题
+// 6.this指向问题(apply, call, bind)
 // 指向最近的对象
 // 例1
 // window.color = 'pjw'
@@ -77,3 +77,4 @@ const obj2 = {
     }
 }
 obj2.showObj.showColor()
+
