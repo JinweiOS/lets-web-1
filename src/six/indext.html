@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 8.原型，原型链
+
+      // 构造函数
+      function People() {
+        this.name = "pjw";
+        this.age = "12345";
+
+        this.drink = function () {
+          console.log(this.name, this.age);
+        };
+      }
+      // 给原型上添加一些属性
+      People.prototype.dna = "dnaxulie";
+      // 1.创建一个空对象
+      // 2.改变this指向，将构造函数的this，指向新创建的对象
+      const t1 = new People();
+      console.log('t1有没有dna', t1.dna)
+
+
+      // 手动链条
+      function handMoveMount() {
+      }
+      handMoveMount.prototype = t1;
+      t1.constructor = handMoveMount;
+
+      const newWorld = new handMoveMount();
+      console.log('haha', newWorld.dna)
+
+    //   const t2 = new People();
+    //   t2.name = "pepsi";
+    //   console.log(t2);
+    //   console.log(t1);
+    //   t1.drink();
+    //   const pwj = {}
+    //   console.log(pwj)
+    </script>
+  </body>
+</html>
