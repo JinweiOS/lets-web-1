@@ -42,10 +42,10 @@ function* getMything() {
 
 const promiseGenerator = getMything();
 const r1 = promiseGenerator.next().value;
-const r2 = promiseGenerator.next().value;
-const r3 = promiseGenerator.next().value;
+// const r2 = promiseGenerator.next().value;
+// const r3 = promiseGenerator.next().value;
 
-r1.then((value) => console.log(value))
+r1.then((value) => promiseGenerator.next())
 r2.then((value) => console.log(value))
 r3.then((value) => console.log(value))
 console.log('hahaha')
