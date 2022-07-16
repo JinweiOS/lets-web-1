@@ -14,6 +14,7 @@ const myPrimose = new Promise((resolve, reject) => {
     // reject('可惜不是你')
 })
 
+myPrimose.then().then().then().then().then()
 
 
 myPrimose.then((value) => {
