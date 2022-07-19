@@ -1,0 +1,15 @@
+{
+  "name": "@futurert/time",
+  "version": "1.0.0",
+  "description": "this is a test for frontend lessons",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "time",
+    "date"
+  ],
+  "author": "jinwei peng, other contributor",
+  "license": "MIT"
+}
