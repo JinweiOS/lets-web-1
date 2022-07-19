@@ -15,14 +15,3 @@
 // }
 const a = () => console.log(1)
 a()
-// class C {
-//     @enumerable(false)
-//     method() { }
-// }
-
-// function enumerable(value) {
-//     return function (target, key, descriptor) {
-//         descriptor.enumerable = value;
-//         return descriptor;
-//     };
-// }
