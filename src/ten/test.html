@@ -17,19 +17,26 @@
 
       var oReq = new XMLHttpRequest();
     //   oReq.addEventListener("load", reqListener);
-      oReq.open("PUT", "http://127.0.0.1:3000/");
+      oReq.open("PUT", "http://learn.api.futureruntime.com/");
       oReq.setRequestHeader("X-name", "pjw");
-      // 回到函数
-      function getRes(res) {
-        const resData = JSON.parse(res.target.response).data
-        // 取元素
-        document.getElementsByClassName('age')[0].innerHTML = resData.age
-        // 名字
-        // 地址
-      }
+
+      // 发送请求报文
       oReq.send();
 
       oReq.addEventListener('load', getRes)
+
+    // 响应1.可以从回调函数的参数里面获取
+      function getRes(res) {
+        // 2.可以直接再xhr实例化的对象上获取
+        console.log(oReq.response);
+        console.log(oReq.getAllResponseHeaders())
+        // res对象里面装了响应的内容
+        // const resData = JSON.parse(res.target.response).data
+        // 取元素
+        // document.getElementsByClassName('age')[0].innerHTML = resData.age
+        // 名字
+        // 地址
+      }
     </script>
   </body>
 </html>
