@@ -2,16 +2,6 @@
 
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
-require("core-js/modules/es.array.iterator.js");
-
-require("core-js/modules/es.map.js");
-
-require("core-js/modules/es.object.to-string.js");
-
-require("core-js/modules/es.string.iterator.js");
-
-require("core-js/modules/web.dom-collections.iterator.js");
-
 require("core-js/modules/es.symbol.js");
 
 require("core-js/modules/es.symbol.description.js");
@@ -30,17 +20,25 @@ require("core-js/modules/es.object.define-property.js");
 
 require("core-js/modules/es.array.is-array.js");
 
-require("core-js/modules/es.function.name.js");
-
 require("core-js/modules/es.symbol.iterator.js");
 
 require("core-js/modules/es.array.slice.js");
 
 require("core-js/modules/es.regexp.exec.js");
 
-require("core-js/modules/esnext.global-this.js");
+require("core-js/modules/es.array.iterator.js");
 
-var _dec, _dec2, _initProto;
+require("core-js/modules/es.map.js");
+
+require("core-js/modules/es.object.to-string.js");
+
+require("core-js/modules/es.string.iterator.js");
+
+require("core-js/modules/web.dom-collections.iterator.js");
+
+require("core-js/modules/es.function.name.js");
+
+var _initClass, _dec, _dec2, _dec3, _initProto;
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -88,19 +86,29 @@ function applyClassDecs(ret, targetClass, metadataMap, classDecs) { if (classDec
 
 function _applyDecs(targetClass, memberDecs, classDecs) { var ret = [], staticMetadataMap = {}, protoMetadataMap = {}; return applyMemberDecs(ret, targetClass, protoMetadataMap, staticMetadataMap, memberDecs), convertMetadataMapToFinal(targetClass.prototype, protoMetadataMap), applyClassDecs(ret, targetClass, staticMetadataMap, classDecs), convertMetadataMapToFinal(targetClass, staticMetadataMap), ret; }
 
-_dec = Tag();
+var tagFunc = [];
+var BeanContaner = new Map();
+
+var _C;
+
+_dec = Bean();
 _dec2 = Tag();
+_dec3 = Tag();
 
 var C = /*#__PURE__*/function () {
   function C() {
     _classCallCheck(this, C);
 
     _initProto(this);
+
+    this.name = 'pjw';
   }
 
   _createClass(C, [{
     key: "method",
-    value: function method() {}
+    value: function method(tag) {
+      console.log(tag);
+    }
   }, {
     key: "method2",
     value: function method2() {}
@@ -109,21 +117,33 @@ var C = /*#__PURE__*/function () {
   return C;
 }();
 
-var _applyDecs2 = _applyDecs(C, [[_dec, 2, "method"], [_dec2, 2, "method2"]], []);
+var _applyDecs2 = _applyDecs(C, [[_dec2, 2, "method"], [_dec3, 2, "method2"]], [_dec]);
 
-var _applyDecs3 = _slicedToArray(_applyDecs2, 1);
+var _applyDecs3 = _slicedToArray(_applyDecs2, 3);
 
 _initProto = _applyDecs3[0];
-globalThis.tagFunc = [];
+_C = _applyDecs3[1];
+_initClass = _applyDecs3[2];
+
+_initClass();
 
 function Tag() {
-  var a = globalThis.tagFunc;
   return function (target, key, descriptor) {
     console.log(target);
-    console.log(a);
-    a.push(target);
+    tagFunc.push(target);
+    console.log();
     return descriptor;
   };
 }
 
-console.log(tagFunc);
+function Bean() {
+  return function (target, key, descriptor) {
+    console.log(target, key); // 拿到构造函数
+
+    var a = new key.constructor();
+    BeanContaner.set('C', a);
+  };
+}
+
+var autoC = BeanContaner.get('C');
+console.log(autoC);

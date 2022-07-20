@@ -1,21 +1,37 @@
+const tagFunc = []
+
+const BeanContaner = new Map()
+@Bean()
 class C {
-    @Tag() method() { }
+    constructor() {
+        this.name = 'pjw'
+    }
+    @Tag() method(tag) { 
+        console.log(tag)
+    }
     @Tag()
     method2() {
 
     }
 }
-globalThis.tagFunc = []
-
 
 function Tag() {
-    const a = globalThis.tagFunc;
     return (target, key, descriptor) => {
         console.log(target)
-        console.log(a)
-        a.push(target)
+        tagFunc.push(target)
+        console.log()
         return descriptor;
     };
 }
 
-console.log(tagFunc)
+function Bean() {
+    return (target, key, descriptor) => {
+        console.log(target, key)
+        // 拿到构造函数
+        const a = new key.constructor()
+        BeanContaner.set('C', a)
+    };
+}
+
+const autoC = BeanContaner.get('C')
+console.log(autoC)
